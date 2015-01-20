@@ -79,6 +79,8 @@ var Coordinate = function (config) {
 
 /**
  * Converts current coordinate to cartesian
+ * @function cartesian
+ * @memberof Coordinate
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
@@ -110,6 +112,8 @@ Coordinate.prototype.cart = function (options) {
 
 /*
  * Converts current coordinate to cylindrical
+ * @function cylindrical
+ * @memberof Coordinate
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
