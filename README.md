@@ -9,7 +9,8 @@ Convert between common 2d and 3d coordinate systems!  Supports:
 1. spherical (3d)
 
 # Usage
-Checkout the API docs for reference.  Generally, construct a Coordinate using one of the provided static constructor functions.
+Checkout the API docs for reference (`docs/index.html`).  The code is short and well documented too!
+Generally, construct a Coordinate using one of the provided static constructor functions.
 Run the conversion member function to convert to an array of values in [x, y, z?]/[r, t, p?/z?] format.
 
 ```js
@@ -32,6 +33,6 @@ xy = Coordinate.cart({
 xy.polar(); // [ 5, 90 ] heyo! who uses degrees anyway :)
 ```
 
-# Note
+# Notes
 Tests are generated and passing.  These have not run through extensive use cases yet,
 so additional testing and feedback is gladly welcomed!
