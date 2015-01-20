@@ -32,6 +32,7 @@
   "devDependencies": {
     "should": "^4.6.1",
     "grunt": "^0.4.5",
+    "grunt-cli": "*",
     "grunt-browserify": "*",
     "grunt-jsdoc": "^0.5.7",
     "grunt-simple-mocha": "*",
