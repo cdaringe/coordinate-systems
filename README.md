@@ -18,16 +18,17 @@ Run the conversion member function to convert to an array of values in [x, y, z?
 ```js
 var Coordinate = require('coordinate-systems');
 
-xy = Coordinate.cart([0, 5]); // 2d cartesian
-xyz = Coordinate.cart([1, 2, 3]); // 3d cartesian
+var xy = Coordinate.cart([0, 5]); // 2d cartesian
+var xyz = Coordinate.cart([1, 2, 3]); // 3d cartesian
 
 xy.polar(); // [ 5, 1.5707963267948966 ] (i.e. radius 5, theta π/2 radians)
 xyz.spherical(); // [ 3.74..., 1.10..., 0.64... ] (radius, theta, phi)
 ```
 
 * If you want to use degrees, extend the construction function as such:
+
 ```js
-xy = Coordinate.cart({
+var xy = Coordinate.cart({
     coords: [0, 5],
     isDegree: true
 });
