@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg style="width: 165px; height: 150px;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="200"
+     inkscape:window-height="200"
+     id="namedview43"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.4615385"
+     inkscape:cx="243.30851"
+     inkscape:cy="542.57578"
+     inkscape:window-x="54"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="svgEditorDefs">
+    <polygon
+       id="svgEditorPolygonDefs"
+       style="stroke: rgb(0, 0, 0); fill: none; vector-effect: non-scaling-stroke; stroke-width: 1px;" />
+    <line
+       id="svgEditorLineDefs"
+       style="stroke: rgb(0, 0, 0); fill: none; vector-effect: non-scaling-stroke; stroke-width: 1px;" />
+    <marker
+       id="arrow15-12-right"
+       markerHeight="12"
+       markerUnits="strokeWidth"
+       markerWidth="15"
+       orient="auto"
+       refX="-3"
+       refY="0"
+       viewBox="-15 -5 20 20">
+      <path
+         d="M -15 -5 L 0 0 L -15 5 z"
+         fill="black"
+         id="path8" />
+    </marker>
+    <marker
+       id="arrow20-16-right"
+       markerHeight="16"
+       markerUnits="strokeWidth"
+       markerWidth="20"
+       orient="auto"
+       refX="-3"
+       refY="0"
+       viewBox="-15 -5 20 20">
+      <path
+         d="M -15 -5 L 0 0 L -15 5 z"
+         fill="black"
+         id="path11" />
+    </marker>
+    <path
+       id="svgEditorClosePathDefs"
+       fill="url(&quot;#lgrd2-fire&quot;)"
+       style="stroke: rgb(0, 0, 0); vector-effect: non-scaling-stroke; stroke-width: 1px;" />
+    <linearGradient
+       id="lgrd3-fr-v"
+       x1="0"
+       x2="0"
+       y1="0"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="blue"
+         id="stop15" />
+      <stop
+         offset="50%"
+         stop-color="black"
+         stop-opacity="0"
+         id="stop17" />
+      <stop
+         offset="100%"
+         stop-color="red"
+         id="stop19" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="rotate(90)"
+       gradientUnits="objectBoundingBox"
+       id="lgrd4-a"
+       spreadMethod="repeat"
+       x1="0%"
+       x2="15%"
+       y1="0%"
+       y2="5%">
+      <stop
+         id="c1"
+         offset="5%"
+         stop-color="#e20709"
+         stop-opacity="0.8" />
+      <stop
+         id="c2"
+         offset="30%"
+         stop-color="#9ad346"
+         stop-opacity="1" />
+      <stop
+         id="c3"
+         offset="60%"
+         stop-color="#bcd346"
+         stop-opacity="0.8" />
+      <stop
+         id="c4"
+         offset="90%"
+         stop-color="#e20709"
+         stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="objectBoundingBox"
+       id="lgrd2-fire"
+       spreadMethod="pad"
+       x1="0%"
+       x2="100%"
+       y1="0%"
+       y2="0%">
+      <stop
+         offset="0%"
+         style="stop-color:rgb(255,255,0);stop-opacity:1"
+         id="stop27" />
+      <stop
+         offset="100%"
+         style="stop-color:rgb(255,0,0);stop-opacity:1"
+         id="stop29" />
+    </linearGradient>
+    <marker
+       id="arrow10-8-left"
+       markerHeight="8"
+       markerUnits="strokeWidth"
+       markerWidth="10"
+       orient="auto"
+       refX="3"
+       refY="0"
+       viewBox="0 -5 20 20">
+      <path
+         d="M 15 -5 L 0 0 L 15 5 z"
+         fill="black"
+         id="path32" />
+    </marker>
+    <marker
+       id="arrow15-12-left"
+       markerHeight="12"
+       markerUnits="strokeWidth"
+       markerWidth="15"
+       orient="auto"
+       refX="3"
+       refY="0"
+       viewBox="0 -5 20 20">
+      <path
+         d="M 15 -5 L 0 0 L 15 5 z"
+         fill="black"
+         id="path35" />
+    </marker>
+  </defs>
+  <rect
+     id="svgEditorBackground"
+     x="-147.875"
+     y="-78.8125"
+     width="1144"
+     height="670"
+     style="fill:none;stroke:none" />
+  <path
+     style="fill:none;stroke:#008000;stroke-width:0.60000002px;stroke-dasharray:4"
+     d="m 143.0921,68.375001 c 0,-34.08541 -27.63169,-61.7170997 -61.717098,-61.7170997 -34.08541,0 -61.7171,27.6316897 -61.7171,61.7170997 0,34.085409 27.63169,61.717099 61.7171,61.717099 34.085408,0 61.717098,-27.63169 61.717098,-61.717099 z"
+     id="e1_circle"
+     inkscape:connector-curvature="0" />
+  <circle
+     id="e2_circle"
+     cx="380"
+     cy="167"
+     style="fill:none;stroke:#008000;stroke-width:1px;stroke-dasharray:4"
+     r="79.528099"
+     transform="matrix(0.167994,0,0,0.77296,16.287002,-61.459299)"
+     sodipodi:cx="380"
+     sodipodi:cy="167"
+     sodipodi:rx="79.528099"
+     sodipodi:ry="79.528099" />
+  <line
+     id="e3_line"
+     x1="79.375"
+     y1="69.375"
+     x2="139.375"
+     y2="69.375"
+     style="fill:none;stroke:#800080;stroke-width:2px;marker-end:url(#arrow15-12-right)" />
+  <line
+     id="e4_line"
+     x1="81.375"
+     y1="68.375"
+     x2="47.375004"
+     y2="112.375"
+     style="fill:none;stroke:#800080;stroke-width:1.99000001px;marker-end:url(#arrow15-12-right)" />
+  <line
+     id="e5_line"
+     x1="81.375"
+     y1="69.375"
+     x2="80.375"
+     y2="10.941392"
+     style="fill:none;stroke:#800080;stroke-width:1.9574759px;marker-end:url(#arrow15-12-right)" />
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.98999999;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     id="text3041"
+     sodipodi:linespacing="125%"
+     transform="matrix(-1.2955306,0,0,-1.2076418,187.79169,156.00159)"><textPath
+       xlink:href="#e1_circle"
+       id="textPath3047"><tspan
+   id="tspan3043"><tspan
+     id="tspan3045"
+     style="font-size:20px;font-variant:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
+     y="46.841232"
+     x="47.9375">coordinate-systems</tspan></tspan></textPath></text>
+</svg>
