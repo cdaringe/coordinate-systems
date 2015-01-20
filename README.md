@@ -1,3 +1,5 @@
+[ ![Codeship Status for cdaringe/coordinate-systems](https://codeship.com/projects/17a94530-8285-0132-f7da-56a1ab730b01/status?branch=master)](https://codeship.com/projects/57887)
+
 <img src="https://raw.githubusercontent.com/cdaringe/coordinate-systems/master/img/logo.png" height="150" width="165" >
 # coordinate-systems
 Convert between common 2d and 3d coordinate systems!  Supports:
