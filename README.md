@@ -4,8 +4,8 @@
 # coordinate-systems
 Convert between common 2d and 3d coordinate systems!  Supports:
 
-1. cartesian 2d
-1. cartesian 3d
+1. cartesian (2d)
+1. cartesian (3d)
 1. polar (2d)
 1. cylindrical (3d)
 1. spherical (3d)
