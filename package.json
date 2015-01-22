@@ -1,6 +1,6 @@
 {
   "name": "coordinate-systems",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts coordindates between cartesian, radial, spherical, and cylindrical coords!",
   "main": "build/coordinate-systems.js",
   "directories": {
