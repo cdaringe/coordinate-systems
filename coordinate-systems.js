@@ -40,11 +40,11 @@ var Coordinate = function (config) {
             if (isRadian !== !x) { isRadian = !x; } // jshint ignore:line
         }
     });
-    Object.defineProperty(pos, "cart2d", {
+    Object.defineProperty(pos, "cartesian2d", {
         get: function (x) { return [_x, _y]; },
         set: function (x) { _x = x[0]; _y = x[1]; }
     });
-    Object.defineProperty(pos, "cart3d", {
+    Object.defineProperty(pos, "cartesian3d", {
         get: function (x) { return [_x, _y, _z]; },
         set: function (x) { _x = x[0]; _y = x[1]; _z = x[2]; }
     });
@@ -78,29 +78,36 @@ var Coordinate = function (config) {
 
 
 /**
+ * @method cartesian
  * Converts current coordinate to cartesian
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
 Coordinate.prototype.cartesian = function () { return this.cart.apply(this, arguments); };
+/**
+ * @method cart
+ * Converts current coordinate to cartesian
+ * @param  {Object} options
+ * @return {Array}  coordinates in respective coordinate format
+ */
 Coordinate.prototype.cart = function (options) {
     var temp;
     options = options || {};
     switch (this.initialType) {
-        case 'cart2d':
-            return this.pos.cart2d;
-        case 'cart3d':
-            return this.pos.cart3d;
+        case 'cartesian2d':
+            return this.pos.cartesian2d;
+        case 'cartesian3d':
+            return this.pos.cartesian3d;
         case 'polar':
-            this.pos.cart2d = Coordinate.polarToCart2d(this.pos.polar, this.isDegree);
-            return this.pos.cart2d;
+            this.pos.cartesian2d = Coordinate.polarToCart2d(this.pos.polar, this.isDegree);
+            return this.pos.cartesian2d;
         case 'cylindrical':
             temp = Coordinate.polarToCart2d(this.pos.polar, this.isDegree);
-            this.pos.cart3d = [temp[0], temp[1], this.pos.cylindrical[2]];
-            return this.pos.cart3d;
+            this.pos.cartesian3d = [temp[0], temp[1], this.pos.cylindrical[2]];
+            return this.pos.cartesian3d;
         case 'spherical':
-            this.pos.cart3d = Coordinate.sphericalToCart3d(this.pos.spherical, this.isDegree);
-            return this.pos.cart3d;
+            this.pos.cartesian3d = Coordinate.sphericalToCart3d(this.pos.spherical, this.isDegree);
+            return this.pos.cartesian3d;
         default:
             throw new Error('cannot convert to/from original/requested types');
     }
@@ -108,22 +115,29 @@ Coordinate.prototype.cart = function (options) {
 
 
 
-/*
+/**
+ * @method cylindrical
  * Converts current coordinate to cylindrical
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
 Coordinate.prototype.cylindrical = function () { return this.cyl.apply(this, arguments); };
+/**
+ * @method cyl
+ * Converts current coordinate to cylindrical
+ * @param  {Object} options
+ * @return {Array}  coordinates in respective coordinate format
+ */
 Coordinate.prototype.cyl = function (options) {
     var temp;
     options = options || {};
     switch (this.initialType) {
-        case 'cart2d':
-            temp = Coordinate.cart2dToPolar(this.pos.cart2d, this.isDegree, options.center);
+        case 'cartesian2d':
+            temp = Coordinate.cartesian2dToPolar(this.pos.cartesian2d, this.isDegree, options.center);
             this.pos.cylindrical = [temp[0], temp[1], 0];
             return this.pos.cylindrical;
-        case 'cart3d':
-            this.pos.cylindrical = Coordinate.cart3dToCylindrical(this.pos.cart3d, this.isDegree, options.center);
+        case 'cartesian3d':
+            this.pos.cylindrical = Coordinate.cartesian3dToCylindrical(this.pos.cartesian3d, this.isDegree, options.center);
             return this.pos.cylindrical;
         case 'polar':
             temp = this.pos.polar;
@@ -131,24 +145,31 @@ Coordinate.prototype.cyl = function (options) {
         case 'cylindrical':
             return this.pos.cylindrical;
         case 'spherical':
-            this.pos.cylindrical = Coordinate.sphToCylindrical(this.pos.spherical, this.isDegree);
+            this.pos.cylindrical = Coordinate.sphericalToCylindrical(this.pos.spherical, this.isDegree);
             return this.pos.cylindrical;
         default:
             throw new Error('cannot convert to/from original/requested types');
     }
 };
 
-/*
+/**
+ * @method pol
  * Converts current coordinate to polar
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
 Coordinate.prototype.pol = function () { return this.polar.apply(this, arguments); };
+/**
+ * @method polar
+ * Converts current coordinate to polar
+ * @param  {Object} options
+ * @return {Array}  coordinates in respective coordinate format
+ */
 Coordinate.prototype.polar = function (options) {
     options = options || {};
     switch (this.initialType) {
-        case 'cart2d':
-            this.pos.polar = Coordinate.cart2dToPolar(this.pos.cart2d, this.isDegree, options.center);
+        case 'cartesian2d':
+            this.pos.polar = Coordinate.cartesian2dToPolar(this.pos.cartesian2d, this.isDegree, options.center);
             return this.pos.polar;
         case 'polar':
             return this.pos.polar;
@@ -159,28 +180,35 @@ Coordinate.prototype.polar = function (options) {
 
 
 
-/*
+/**
+ * @method spherical
  * Converts current coordinate to spherical
  * @param  {Object} options
  * @return {Array}  coordinates in respective coordinate format
  */
 Coordinate.prototype.spherical = function () { return this.sph.apply(this, arguments); };
+/**
+ * @method sph
+ * Converts current coordinate to spherical
+ * @param  {Object} options
+ * @return {Array}  coordinates in respective coordinate format
+ */
 Coordinate.prototype.sph = function (options) {
     var temp;
     options = options || {};
     switch (this.initialType) {
-        case 'cart2d':
-            temp = Coordinate.cart2dToPolar(this.pos.cart2d, this.isDegree, options.center);
+        case 'cartesian2d':
+            temp = Coordinate.cartesian2dToPolar(this.pos.cartesian2d, this.isDegree, options.center);
             this.pos.spherical = [temp[0], temp[1], 0];
             return this.pos.spherical;
-        case 'cart3d':
-            this.pos.spherical = Coordinate.cart3dToSpherical(this.pos.cart3d, this.isDegree, options.center);
+        case 'cartesian3d':
+            this.pos.spherical = Coordinate.cartesian3dToSpherical(this.pos.cartesian3d, this.isDegree, options.center);
             return this.pos.spherical;
         case 'polar':
             temp = this.pos.polar;
             return [temp[0], temp[1], 0];
         case 'cylindrical':
-            this.pos.spherical = Coordinate.cylToSpherical(this.pos.cylindrical, this.isDegree);
+            this.pos.spherical = Coordinate.cylindricalToSpherical(this.pos.cylindrical, this.isDegree);
             return this.pos.spherical;
         case 'spherical':
             return this.pos.spherical;
@@ -191,15 +219,20 @@ Coordinate.prototype.sph = function (options) {
 
 
 ///
-/// Static Conversion Functions
+/// Static Constructor Functions
 ///
 
 /**
- * @description Generates an initially cartesian coordinate object
+ * Create a point provided x, y, and optionally z coordinates
  * @param  {Object} coordinates
  * @return {Coordinate}
  */
 Coordinate.cartesian = function(x) { return Coordinate.cart(x); };
+/**
+ * Create a point provided x, y, and optionally z coordinates
+ * @param  {Object} coordinates
+ * @return {Coordinate}
+ */
 Coordinate.cart = function(options) {
     var baseCoord;
     if (isArray(options)) {
@@ -211,14 +244,14 @@ Coordinate.cart = function(options) {
             throw new Error('expected exactly 2 or exactly 3 cartesian options');
         }
         baseCoord = {
-            label: 'cart2d',
+            label: 'cartesian2d',
             options: options.coords
         };
         baseCoord = extend(baseCoord, options);
         if (options.coords.length === 2) {
             return new Coordinate(baseCoord);
         }
-        baseCoord.label = 'cart3d';
+        baseCoord.label = 'cartesian3d';
         return new Coordinate(baseCoord);
     }
     throw new Error('expected options w/ array of [x,y,(z?)] coords');
@@ -227,11 +260,16 @@ Coordinate.cart = function(options) {
 
 
 /**
- * @description Point in [r (radius), t (theta), z]
+ * Create point provided [radius, theta, z]
  * @param  {Object} coordinates
  * @return {Coordinate}
  */
 Coordinate.cylindrical = function(x) { return Coordinate.cyl(x); };
+/**
+ * Create point provided [radius, theta, z]
+ * @param  {Object} coordinates
+ * @return {Coordinate}
+ */
 Coordinate.cyl = function(options) {
     var baseCoord;
     if (isArray(options)) {
@@ -255,11 +293,16 @@ Coordinate.cyl = function(options) {
 
 
 /**
- * @description Point in [r (radius), t (theta)]
+ * Create point provided [radius, theta]
  * @param  {Object} coordinates
  * @return {Coordinate}
  */
 Coordinate.polar = function(x) { return Coordinate.pol(x); };
+/**
+ * Create point provided [radius, theta]
+ * @param  {Object} coordinates
+ * @return {Coordinate}
+ */
 Coordinate.pol = function(options) {
     var baseCoord;
     if (isArray(options)) {
@@ -283,11 +326,16 @@ Coordinate.pol = function(options) {
 
 
 /**
- * @description Point in [r (radius), t (theta), p (phi)]
+ * Create point provided [radius, theta, phi]
  * @param  {Object} coordinates
  * @return {Coordinate}
  */
-Coordinate.spherical = function(x) { return Coordinate.sph(x); };
+Coordinate.spherical = function(options) { return Coordinate.sph(options); };
+/**
+ * Create point provided [radius, theta, phi]
+ * @param  {Object} coordinates
+ * @return {Coordinate}
+ */
 Coordinate.sph = function(options) {
     var baseCoord;
     if (isArray(options)) {
@@ -311,8 +359,9 @@ Coordinate.sph = function(options) {
 
 
 /**
- * Mutates an array of number-like looking values,
- * e.g. strings/nums [5, '2.4', '0'], to purely numeric
+ * Mutates an array of number-like looking values to purely numeric array
+ * @example
+ * [5, '2.4', '0'] => [5, 2.4, 0]
  * @param  {Array} nums
  * @return {undefined}
  */
@@ -327,7 +376,7 @@ Coordinate.arrToNumeric = function(nums) {
             num = parseFloat(num);
         }
         if (!isNumber(num)) {
-            throw new TypeError(num + ' not numeric');
+            throw new TypeError(num + ' not numeric or numeric-like');
         }
     }
 };
@@ -335,10 +384,10 @@ Coordinate.arrToNumeric = function(nums) {
 
 
 /**
- * Converts polar coordinates to 2d cartesian coords
- * @param  {Array}  rt        [radis, theta]
+ * Convert polar to 2d cartesian coordinates
+ * @param  {Array}   rt        [radis, theta]
  * @param  {Boolean} isDegree specifies units
- * @return {Array}            [x, y]
+ * @return {Array}  [x, y]
  */
 Coordinate.polarToCart2d = function(rt, isDegree) {
     var r, t, x, y;
@@ -355,13 +404,15 @@ Coordinate.polarToCart2d = function(rt, isDegree) {
 
 
 /**
- * Convert xy coordinates to colar
+ * Convert cartesian 2d to polar coordinates
  * @param  {Array}  xy
  * @param {Boolean=} isDegree overrides default radian theta assumption
- * @param  {Array=} center [x, y] coords of center of circle
- * @return {Array}  rt
+ * @param  {Array=} center [x, y] coords of center of circle.  Defaults to [0, 0],
+ * however may be offset.  Note. Such functionality not supported yet for converting
+ * polar to cartesian
+ * @return {Array}  [radius, theta]
  */
-Coordinate.cart2dToPolar = function(xy, isDegree, center) {
+Coordinate.cartesian2dToPolar = function(xy, isDegree, center) {
     var x, y, r, t;
     if (!isArray(xy) && xy.length !== 2) {
         throw new TypeError('expected [x, y] xy array');
@@ -384,37 +435,33 @@ Coordinate.cart2dToPolar = function(xy, isDegree, center) {
 };
 
 
-///
-/// Static Contstructor Functions
-///
 
 /**
- * Converts 3d cartesian to 3d cylindrical
+ * Convert 3d cartesian to 3d cylindrical coordinates
  * @param  {Array}      argument [x, y, z] coords
  * @param  {Boolean=}   isDegree overrides default radian theta assumption
  * @param  {Array=}     center [x, y] coords of center of circle
- * @return {Array}          [r, t, z] coords
+ * @return {Array}      [radius, theta, z]
  */
-Coordinate.cart3dToCylindrical = function (xyz, isDegree, center) {
+Coordinate.cartesian3dToCylindrical = function (xyz, isDegree, center) {
     var x = xyz[0],
         y = xyz[1],
         z = xyz[2],
         rt;
-    rt = Coordinate.cart2dToPolar([x, y], isDegree, center);
+    rt = Coordinate.cartesian2dToPolar([x, y], isDegree, center);
     return [rt[0], rt[1], z];
 };
 
 
 
-
 /**
- * Converts 3d cartesian to 3d spherical coords
+ * Convert 3d cartesian to 3d spherical coordinates
  * @param  {Array}      argument [x, y, z] coords
  * @param  {Boolean=}   isDegree overrides default radian theta assumption
  * @param  {Array=}     center [x, y, z] coords of center of circle
- * @return {Array}          [r, t, p] coords
+ * @return {Array}      [radius, theta, phi]
  */
-Coordinate.cart3dToSpherical = function (xyz, isDegree, center) {
+Coordinate.cartesian3dToSpherical = function (xyz, isDegree, center) {
     if (center && center.length !== 3) {
         throw new Error('expected center value to have [x, y, z] coords' +
             'for locating sphere center');
@@ -447,12 +494,12 @@ Coordinate.cart3dToSpherical = function (xyz, isDegree, center) {
 
 
 /**
- * Converts a cylindrical (r, t, z) point to a spherical (r, t, p) point
- * @param  {Array}  rtz
+ * Convert a cylindrical to a spherical coordinates
+ * @param  {Array}   rtz
  * @param  {Boolean} isDegree
- * @return {Array}
+ * @return {Array}   [radius, theta, phi]
  */
-Coordinate.cylToSpherical =function(rtz, isDegree) {
+Coordinate.cylindricalToSpherical = function(rtz, isDegree) {
     var r = rtz[0], t = rtz[1], z = rtz[2];
     var sr, sp; // sphere radius, sphere theta...
     if (isDegree) {
@@ -470,7 +517,7 @@ Coordinate.cylToSpherical =function(rtz, isDegree) {
 
 
 /**
- * Converts a spherical (r, t, p) point to a cartesian (x, y, z) point
+ * Convert spherical to a cartesian coordinates
  * @param  {Array}  rtz
  * @param  {Boolean} isDegree
  * @return {Array}
@@ -491,12 +538,12 @@ Coordinate.sphericalToCart3d = function (rtp, isDegree) {
 
 
 /**
- * Converts a spherical (r, t, p) point to a cylindrical (r, t, z) point
+ * Convert spherical to cylindrical coordinates
  * @param  {Array}  rtz
  * @param  {Boolean} isDegree
  * @return {Array}
  */
-Coordinate.sphToCylindrical = function (rtp, isDegree) {
+Coordinate.sphericalToCylindrical = function (rtp, isDegree) {
     var r = rtp[0], t = rtp[1], p = rtp[2],
         cr, z;
     if (isDegree) {
