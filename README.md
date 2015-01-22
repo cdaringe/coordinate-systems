@@ -11,8 +11,7 @@ Convert between common 2d and 3d coordinate systems!  Supports:
 1. spherical (3d)
 
 # Usage
-Checkout the API docs for reference (`docs/index.html`).  The code is short and well documented too!  General function availability listed towards bottom.
-Generally, construct a Coordinate using one of the provided static constructor functions.
+Checkout the docs for reference (`docs/index.html`).  The code is short and well documented too!  Module interface shown below, too.  Generally, construct a `Coordinate` using one of the provided static constructor functions.
 Run the conversion member function to convert to an array of values in [x, y, z?]/[r, t, p?/z?] format.
 
 ```js
