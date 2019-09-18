@@ -2,6 +2,8 @@
 
 <img src="https://raw.githubusercontent.com/cdaringe/coordinate-systems/master/img/logo.png" height="150" width="165" >
 # coordinate-systems
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/cdaringe/coordinate-systems.svg)](https://greenkeeper.io/)
 Convert between common 2d and 3d coordinate systems!  Supports:
 
 1. cartesian (2d)
