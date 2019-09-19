@@ -1,0 +1,23 @@
+name: main
+on: [push]
+jobs:
+  run:
+    name: Run
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@master
+    - name: Set Node.js 12.x
+      uses: actions/setup-node@master
+      with:
+        version: 12.x
+    - name: npm install
+      run: npm ci
+    - name: lint
+      run: npm run lint
+    - name: build
+      run: npm run build
+    - name: npm test
+      run: npm test

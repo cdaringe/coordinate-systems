@@ -1,2 +1,5 @@
-node_modules/*
-doc/*
+node_modules
+doc
+*.js
+*.d.ts
+!src/index.d.ts
