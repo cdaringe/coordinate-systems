@@ -1,13 +1,19 @@
 {
   "name": "coordinate-systems",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Converts coordindates between cartesian, polar, radial, spherical, and cylindrical coords!",
-  "main": "coordinate-systems.js",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "build": "tsc",
+    "test": "ava",
+    "format": "prettier-standard '{src,test,scripts}/**/*.{ts,tsx}'",
+    "lint": "standardx '{src,test,scripts}/**/*.{ts,tsx}' --fix"
   },
   "repository": {
     "type": "git",
@@ -30,18 +36,57 @@
   "author": "cdaringe",
   "license": "MIT",
   "dependencies": {
-    "amp-extend": "^1.0.1",
-    "amp-is-array": "^1.0.1",
-    "amp-is-number": "^1.0.1",
-    "amp-is-object": "^1.0.1"
+    "lodash": "^4"
   },
   "devDependencies": {
-    "should": "^4.6.1",
-    "grunt": "^0.4.5",
-    "grunt-cli": "*",
-    "grunt-browserify": "*",
-    "grunt-jsdoc": "^0.5.7",
-    "grunt-simple-mocha": "*",
-    "uglifyify": "^3.0.1"
+    "@types/lodash": "^4.14.138",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "ava": "^2.4.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier-standard": "^14.0.5",
+    "standardx": "^5.0.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,test,scripts}/**/*.{ts,tsx}": [
+      "npm run format",
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/**/test.ts"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": 0
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ],
+    "ignore": [
+      "**/*.d.ts"
+    ]
   }
 }
