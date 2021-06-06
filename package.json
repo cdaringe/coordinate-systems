@@ -48,7 +48,7 @@
     "lint-staged": "^9.2.5",
     "prettier-standard": "^14.0.5",
     "standardx": "^5.0.0",
-    "ts-node": "^8.4.1",
+    "ts-node": "8.10.2",
     "typescript": "^3.6.3"
   },
   "husky": {
